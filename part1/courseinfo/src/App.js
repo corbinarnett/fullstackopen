@@ -1,4 +1,6 @@
+import { useState } from "react";
 const App = () => {
+  const [counter, setCounter] = useState(0);
   const course = {
     name: "Half Stack application development",
     parts: [
@@ -16,6 +18,13 @@ const App = () => {
       },
     ],
   };
+
+  // setTimeout(() => setCounter(counter + 1), 1000);
+  const increaseByOne = () => setCounter(counter + 1);
+  const decreaseByOne = () => setCounter(counter - 1);
+  const setToZero = () => setCounter(0);
+  console.log("rendering...", counter);
+
   const Header = ({ course }) => {
     return <h1>{course}</h1>;
   };
@@ -52,6 +61,12 @@ const App = () => {
       <Header course={course.name} />
       <Content parts={course.parts} />
       <Total parts={course.parts} />
+      <div>
+        <div>{counter}</div>
+        <button onClick={increaseByOne}>plus</button>
+        <button onClick={setToZero}>zero</button>
+        <button onClick={decreaseByOne}>minus</button>
+      </div>
     </div>
   );
 };
