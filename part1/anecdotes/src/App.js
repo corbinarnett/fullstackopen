@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from "react";
 
 const App = () => {
   const anecdotes = [
@@ -11,9 +11,9 @@ const App = () => {
     "Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.",
   ];
 
-  // const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(0);
 
-  return <div>{/* {anecdotes[selected]} */}</div>;
+  return <div>{anecdotes[selected]}</div>;
 };
 
 export default App;
