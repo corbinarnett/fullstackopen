@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
 const Votes = ({ votes }) => <p>has {votes} votes</p>;
+const Header = ({ text }) => <h1>{text}</h1>;
+const Anecdote = ({ text }) => <p>{text}</p>;
 
 const App = () => {
   const [selected, setSelected] = useState(0);
@@ -21,12 +23,21 @@ const App = () => {
     return setSelected(0);
   };
 
+  // find the highest value in the array of votes
+  const highestVotes = Math.max(...votes);
+  // set a value with the correct anecdote based on the index of the value with the most votes
+  const winningAnecdote = anecdotes[votes.indexOf(highestVotes)];
+
   return (
     <div>
-      <div>{anecdotes[selected]}</div>
+      <Header text="Anecdote of the day" />
+      <Anecdote text={anecdotes[selected]} />
       <Votes votes={votes[selected]} />
       <Button onClick={voteForAnecdote} text="vote" />
       <Button onClick={nextAnecdote} text="next" />
+      <Header text="Anecdote with most votes" />
+      <Anecdote text={winningAnecdote} />
+      <p>has {highestVotes} votes</p>
     </div>
   );
 };
