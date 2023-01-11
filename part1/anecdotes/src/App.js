@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
 const Votes = ({ votes }) => <p>has {votes} votes</p>;
@@ -30,14 +30,16 @@ const App = () => {
 
   return (
     <div>
-      <Header text="Anecdote of the day" />
-      <Anecdote text={anecdotes[selected]} />
-      <Votes votes={votes[selected]} />
-      <Button onClick={voteForAnecdote} text="vote" />
-      <Button onClick={nextAnecdote} text="next" />
-      <Header text="Anecdote with most votes" />
-      <Anecdote text={winningAnecdote} />
-      <p>has {highestVotes} votes</p>
+      <React.StrictMode>
+        <Header text="Anecdote of the day" />
+        <Anecdote text={anecdotes[selected]} />
+        <Votes votes={votes[selected]} />
+        <Button onClick={voteForAnecdote} text="vote" />
+        <Button onClick={nextAnecdote} text="next" />
+        <Header text="Anecdote with most votes" />
+        <Anecdote text={winningAnecdote} />
+        <p>has {highestVotes} votes</p>
+      </React.StrictMode>
     </div>
   );
 };
