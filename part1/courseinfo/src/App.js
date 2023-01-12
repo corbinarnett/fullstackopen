@@ -1,6 +1,6 @@
-// import Course from "./components/Course";
-import Header from "./components/Header";
-import Part from "./components/Part";
+import Course from "./components/Course";
+// import Header from "./components/Header";
+// import Part from "./components/Part";
 const App = () => {
   const course = {
     id: 1,
@@ -24,16 +24,7 @@ const App = () => {
     ],
   };
 
-  return (
-    <div>
-      <Header course={course.name} />
-      <ul>
-        {course.parts.map((part) => (
-          <Part key={part.id} part={part} />
-        ))}
-      </ul>
-    </div>
-  );
+  return <Course course={course} />;
 };
 
 export default App;
