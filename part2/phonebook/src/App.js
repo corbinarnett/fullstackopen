@@ -12,13 +12,19 @@ const App = () => {
       // important: Math.random() < 0.5,
       id: persons.length + 1,
     };
-    setPersons(persons.concat(personObject));
-    console.log(persons);
+
+    if (persons.find((person) => person.name === personObject.name)) {
+      alert(`${personObject.name} is already added to the phonebook`);
+      setNewName("");
+      return false;
+    }
+    setPersons([...persons, personObject]);
+    // console.log(persons);
     setNewName("");
   };
 
   const handleNameChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setNewName(event.target.value);
   };
 
