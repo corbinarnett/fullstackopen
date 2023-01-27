@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Form from "./components/Form";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -23,6 +24,7 @@ const App = () => {
       setNewName("");
       return false;
     }
+
     setPersons([...persons, personObject]);
     setNewName("");
     setNewNumber("");
@@ -46,24 +48,12 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          name:{" "}
-          <input name="name" value={newName} onChange={handleChange} required />
-        </div>
-        <div>
-          number:{" "}
-          <input
-            name="number"
-            value={newNumber}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <Form
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        newName={newName}
+        newNumber={newNumber}
+      />
       <h2>Numbers</h2>
       <ul>
         {persons.map((person) => (
