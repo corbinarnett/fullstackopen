@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DisplayContacts from "./components/DisplayContacts";
 import Form from "./components/Form";
 import Search from "./components/Search";
 
@@ -52,22 +53,15 @@ const App = () => {
 
   return (
     <div>
+      <h2>Phonebook</h2>
       <Search newSearch={newSearch} handleChange={handleChange} />
-      <h2>Add a new contact:</h2>
       <Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         newName={newName}
         newNumber={newNumber}
       />
-      <h2>Numbers</h2>
-      <ul>
-        {persons.map((person) => (
-          <div>
-            {person.name} - {person.number}
-          </div>
-        ))}
-      </ul>
+      <DisplayContacts persons={persons} />
     </div>
   );
 };
