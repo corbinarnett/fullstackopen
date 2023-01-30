@@ -61,7 +61,7 @@ const App = () => {
         newName={newName}
         newNumber={newNumber}
       />
-      <DisplayContacts persons={persons} />
+      <DisplayContacts persons={persons} newSearch={newSearch} />
     </div>
   );
 };
