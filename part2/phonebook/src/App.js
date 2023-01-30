@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Form from "./components/Form";
+import Search from "./components/Search";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -10,6 +11,7 @@ const App = () => {
   ]);
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
+  const [newSearch, setSearch] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,13 +43,17 @@ const App = () => {
       case "number":
         setNewNumber(inputValue);
         break;
+      case "search":
+        setSearch(inputValue);
+        break;
       default:
     }
   };
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <Search newSearch={newSearch} handleChange={handleChange} />
+      <h2>Add a new contact:</h2>
       <Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
